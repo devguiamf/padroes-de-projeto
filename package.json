@@ -1,0 +1,20 @@
+{
+  "name": "padroes-de-projeto",
+  "version": "1.0.0",
+  "description": "Projeto de estudos de padrões de projeto em TypeScript",
+  "type": "commonjs",
+  "scripts": {
+    "build": "swc strategy/classes -d dist --copy-files",
+    "build:watch": "swc strategy/classes -d dist --copy-files --watch",
+    "build:tsc": "tsc",
+    "build:tsc:watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "dev": "npm run build:watch",
+    "start": "npm run build && node dist/strategy/classes/guerreiro.js"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.7.9",
+    "@swc/core": "^1.15.7",
+    "typescript": "^5.9.3"
+  }
+}
