@@ -1,8 +1,8 @@
-import { Personagem } from "./personagem";
-import { AtaqueComMagia } from "./comportamentos/ataques/ataque-com-magia";
-import { DefesaComBarreiraMagica } from "./comportamentos/defesas/defesa-com-barreira-magica";
-import { AtaqueComEspada } from "./comportamentos/ataques/ataque-com-espada";
-import { DefesaComEscudo } from "./comportamentos/defesas/defesa-com-escudo";
+import { Personagem } from "./classe-pai/personagem";
+import { AtaqueComMagia } from "../comportamentos/ataques/ataque-com-magia";
+import { DefesaComBarreiraMagica } from "../comportamentos/defesas/defesa-com-barreira-magica";
+import { AtaqueComEspada } from "../comportamentos/ataques/ataque-com-espada";
+import { DefesaComEscudo } from "../comportamentos/defesas/defesa-com-escudo";
 
 /**
  * Exemplo de implementação do padrão Strategy
@@ -42,26 +42,15 @@ export class Mago extends Personagem {
   }
 }
 
-// Exemplo de uso
-if (require.main === module) {
-  console.log("=== Exemplo: Mago usando Padrão Strategy ===\n");
-  
-  const mago = new Mago("Gandalf");
-  
-  console.log("\n--- Ataque e Defesa do Mago ---");
-  mago.atacar();
-  mago.defender();
-  
-  console.log("\n--- Mago pode trocar de estratégia em tempo de execução ---");
-  // Mesmo sendo um Mago, pode usar estratégias de Guerreiro se necessário
-  mago.mudarAtaque(new AtaqueComEspada());
-  mago.mudarDefesa(new DefesaComEscudo());
-  
-  console.log("\n--- Mago usando estratégias de Guerreiro ---");
-  mago.atacar();
-  mago.defender();
-  
-  console.log("\n✅ Este exemplo demonstra a flexibilidade do padrão Strategy!");
-  console.log("   O Mago pode usar qualquer estratégia, não apenas as de magia.");
-}
 
+const mago = new Mago("Gandalf");
+
+mago.atacar();
+mago.defender();
+
+// Mesmo sendo um Mago, pode usar estratégias de Guerreiro se necessário
+mago.mudarAtaque(new AtaqueComEspada());
+mago.mudarDefesa(new DefesaComEscudo());
+
+mago.atacar();
+mago.defender();

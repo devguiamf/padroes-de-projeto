@@ -4,13 +4,11 @@
   "description": "Projeto de estudos de padrões de projeto em TypeScript",
   "type": "commonjs",
   "scripts": {
-    "build": "swc strategy/classes -d dist --copy-files",
-    "build:watch": "swc strategy/classes -d dist --copy-files --watch",
-    "build:tsc": "tsc",
-    "build:tsc:watch": "tsc --watch",
+    "build:strategy": "swc strategy/ -d dist --copy-files",
+    "build:observer": "swc observer/ -d dist --copy-files",
     "clean": "rm -rf dist",
-    "dev": "npm run build:watch",
-    "start": "npm run build && node dist/strategy/classes/guerreiro.js"
+    "start:guerreiro": "npm run build:strategy && node dist/strategy/classes/guerreiro.js",
+    "start:observer": "npm run build:observer && node dist/observer/classes/produto.js"
   },
   "devDependencies": {
     "@swc/cli": "^0.7.9",

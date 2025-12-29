@@ -1,7 +1,9 @@
-import { AtaqueSemArma } from "./comportamentos/ataques/ataque-sem-arma";
-import { DefesaComAsMaos } from "./comportamentos/defesas/defesa-com-as-maos";
-import { AtaqueComportamento } from "./interfaces/ataque-compoetamento";
-import { DefesaComportamento } from "./interfaces/defesa-compoetamento";
+import { DefesaComAsMaos } from '../../comportamentos/defesas/defesa-com-as-maos';
+import { AtaqueSemArma } from '../../comportamentos/ataques/ataque-sem-arma'
+import { AtaqueComportamento } from '../../interfaces/ataque-compoetamento';
+import { DefesaComportamento } from '../../interfaces/defesa-compoetamento';
+
+
 
 export abstract class Personagem {
   protected nome: string;

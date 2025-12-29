@@ -1,4 +1,4 @@
-import { Personagem } from "./personagem";
+import { Personagem } from "./classe-pai/personagem";
 
 export class Guerreiro extends Personagem {
     constructor(nome: string) {
