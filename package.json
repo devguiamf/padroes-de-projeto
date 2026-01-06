@@ -6,9 +6,11 @@
   "scripts": {
     "build:strategy": "swc strategy/ -d dist --copy-files",
     "build:observer": "swc observer/ -d dist --copy-files",
+    "build:decorators": "swc decorators/ -d dist --copy-files",
     "clean": "rm -rf dist",
     "start:guerreiro": "npm run build:strategy && node dist/strategy/classes/guerreiro.js",
-    "start:observer": "npm run build:observer && node dist/observer/classes/produto.js"
+    "start:observer": "npm run build:observer && node dist/observer/classes/produto.js",
+    "start:decorators": "npm run build:decorators && node dist/decorators/classes/sistema.js"
   },
   "devDependencies": {
     "@swc/cli": "^0.7.9",
