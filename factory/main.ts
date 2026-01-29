@@ -1,14 +1,35 @@
-import { FrancaLojaPizza } from "./loja-franca/franca-loja-pizza";
+import { FabricaPizzaAbstrata } from "./classes/fabricas/fabrica-abstrata";
+import { FrancaLojaPizza } from "./classes/fabricas/loja-franca/franca-loja-pizza";
+import { JundiaiLojaPizza } from "./classes/fabricas/loja-jundiai/jundiai-loja-pizza";
+import { RibeiraoPretoLojaPizza } from "./classes/fabricas/loja-ribeirão-preto/ribeirao-preto-loja-pizza";
 
-const pizzariaFranca = new FrancaLojaPizza();
+class Main {
 
-// Teste: criar algumas pizzas
-console.log("=== Pedindo pizza de queijo ===");
-pizzariaFranca.pedidoPizza("queijo");
+    private readonly pizzariaFranca: FabricaPizzaAbstrata;
+    private readonly pizzariaJundiai: FabricaPizzaAbstrata;
+    private readonly pizzariaRibeiraoPreto: FabricaPizzaAbstrata;
 
-console.log("\n=== Pedindo pizza vegetariana ===");
-pizzariaFranca.pedidoPizza("vegetariana");
+    constructor() {
+        this.pizzariaFranca = new FrancaLojaPizza();
+        this.pizzariaJundiai = new JundiaiLojaPizza();
+        this.pizzariaRibeiraoPreto = new RibeiraoPretoLojaPizza();
+    }
 
-console.log("\n=== Pedindo pizza de pepperoni ===");
-pizzariaFranca.pedidoPizza("pepperoni");
+    public pedirPizzaFranca(tipo: string){
+        this.pizzariaFranca.pedidoPizza(tipo);
+    }
 
+    public pedirPizzaJundiai(tipo: string){
+        this.pizzariaJundiai.pedidoPizza(tipo);
+    }
+
+    public pedirPizzaRibeiraoPreto(tipo: string){
+        this.pizzariaRibeiraoPreto.pedidoPizza(tipo);
+    }
+}
+
+const main = new Main();
+
+main.pedirPizzaFranca("queijo");
+main.pedirPizzaJundiai("vegetariana");
+main.pedirPizzaRibeiraoPreto("pepperoni");
